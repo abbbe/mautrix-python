@@ -309,4 +309,6 @@ class MediaRepositoryMethods(BaseClientAPI):
             else:
                 break
 
+        self.log.warn("pausing for ten seconds before telling the server about the completed upload")
+        time.sleep(10)
         await self.api.request(Method.POST, post_upload_path)
