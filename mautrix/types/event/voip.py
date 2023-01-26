@@ -44,7 +44,7 @@ class CallCandidate(SerializableAttrs):
 class CallInviteEventContent(SerializableAttrs):
     call_id: str
     lifetime: int
-    version: int
+    version: str
     offer: CallData
     party_id: Optional[str] = None
     invitee: Optional[UserID] = None
@@ -53,7 +53,7 @@ class CallInviteEventContent(SerializableAttrs):
 @dataclass
 class CallCandidatesEventContent(SerializableAttrs):
     call_id: str
-    version: int
+    version: str
     candidates: List[CallCandidate]
     party_id: Optional[str] = None
 
@@ -61,7 +61,7 @@ class CallCandidatesEventContent(SerializableAttrs):
 @dataclass
 class CallSelectAnswerEventContent(SerializableAttrs):
     call_id: str
-    version: int
+    version: str
     party_id: str
     selected_party_id: str
 
@@ -69,7 +69,7 @@ class CallSelectAnswerEventContent(SerializableAttrs):
 @dataclass
 class CallAnswerEventContent(SerializableAttrs):
     call_id: str
-    version: int
+    version: str
     answer: CallData
     party_id: Optional[str] = None
 
@@ -77,7 +77,7 @@ class CallAnswerEventContent(SerializableAttrs):
 @dataclass
 class CallHangupEventContent(SerializableAttrs):
     call_id: str
-    version: int
+    version: str
     reason: CallHangupReason = CallHangupReason.USER_HANGUP
     party_id: Optional[str] = None
 
@@ -85,14 +85,14 @@ class CallHangupEventContent(SerializableAttrs):
 @dataclass
 class CallRejectEventContent(SerializableAttrs):
     call_id: str
-    version: int
+    version: str
     party_id: str
 
 
 @dataclass
 class CallNegotiateEventContent(SerializableAttrs):
     call_id: str
-    version: int
+    version: str
     lifetime: int
     party_id: str
     description: CallData
